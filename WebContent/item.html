@@ -1,0 +1,42 @@
+<div ng-controller="ItemCtrl" class="container">
+
+
+	<div class="row">
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="exampleInputName2">Add Item</label> <input type="text"
+					ng-model="title" class="form-control" placeholder="Title..">
+			</div>
+			<br /> <br />
+			<button type="button" ng-click="addItem()" class="btn btn-default">Add
+				Item</button>
+				
+		</form>
+		<a style="margin-top:10px" href="index.html#/todo" class="btn btn-default">Home</a>
+
+		<h2>{{todo.title}} Items</h2>
+		<ul class="list-unstyled">
+			<li><div ng-repeat="item in todo.items">
+					<div id="content-{{item.id}}" >
+						{{item.title}}
+						
+						<input type="checkbox"  readonly="readonly" checked="checked" ng-show="item.isCompleted" />
+							<input type="checkbox"  readonly="readonly" ng-show="!item.isCompleted" />
+						 <a ng-click="removeItem(item.id)"
+							href="javascript:void(0)"><span title="remove"
+							></span>Remove </a> <a
+							ng-click="editView(item.id)" href="javascript:void(0)">Edit</a>
+					</div>
+					<div id="edit-{{item.id}}" style="display: none;">
+						<input ng-model="item.title" />
+
+						<button type="button" ng-click="editItem(item.title,item.id)"
+							class="btn btn-default">Edit Item</button>
+					</div>
+				</div></li>
+		</ul>
+
+
+
+	</div>
+</div>

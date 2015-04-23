@@ -1,0 +1,43 @@
+<div ng-controller="TodoCtrl" class="container">
+
+
+
+	<div class="row">
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="exampleInputName2">Todo </label> <input type="text"
+					ng-model="title" class="form-control" placeholder="Title..">
+			</div>
+			<br /> <br />
+			<button type="button" ng-click="addTodo()" class="btn btn-default">Add List</button>
+		</form>
+
+		<h2>Todo List</h2>
+		<ul class="list-unstyled">
+			<li><div ng-repeat="todo in todos">
+					<div id="content-{{todo.id}}">
+						<a href="index.html#/items/{{todo.id}}">{{todo.title}} </a> ( <a
+							ng-click="removeList(todo.id)" href="javascript:void(0)">
+							Remove </a>) <a ng-click="editView(todo.id)"
+							href="javascript:void(0)">Edit</a>
+					</div>
+					<div id="edit-{{todo.id}}" style="display: none;">
+						<input ng-model="todo.title" />
+
+						<button type="button" ng-click="editItem(todo.title,todo.id)"
+							class="btn btn-default">Edit Item</button>
+					</div>
+				</div></li>
+		</ul>
+
+
+
+
+	</div>
+
+
+
+
+
+</div>
+
